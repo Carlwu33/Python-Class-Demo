@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-
+import sys
+from collections import Counter
 class Person(object):
     """
     """
-    def __init__(self, name, grade):
+    def __init__(self, name):
         self.name = name
 
     def get_details(self):
@@ -31,7 +32,7 @@ class Student(Person):
         """
         """
         return "{} studies {} and is in {} year.".format(self.name, self.branch, self.year)
-    
+
     def get_grade(self):
         """
         """
@@ -39,7 +40,7 @@ class Student(Person):
         n1 = 0
         n2 = 0
         for item in res:
-            if item[0] !=D:
+            if item[0] !="D":
                 n1 = +item[1]
             else:
                 n2 += item[1]
@@ -59,10 +60,10 @@ class Teacher(Person):
 
     def get_grade(self):
         s = []
-        res = Counter(self.grade).most_commom(4)
+        res = Counter(self.grade).most_common(4)
         for i, j in res:
             s.append("{}: {}".format(i,j))
-        print(', '.join(s)
+        print(', '.join(s))
 
 person1 = Person('Sachin')
 if sys.argv[1] == "student":
@@ -70,6 +71,6 @@ if sys.argv[1] == "student":
     student1.get_grade()
 elif sys.argv[1] == "teacher":
     teacher1 = Teacher('Prashad',['python', 'c++'], sys.argv[2])
-    teacher1.get_grade()            
+    teacher1.get_grade()
 
 
