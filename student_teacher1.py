@@ -58,6 +58,18 @@ class Teacher(Person):
         return "{} teaches {}".format(self.name, ','.join(self.papers))
 
     def get_grade(self):
+        s = []
         res = Counter(self.grade).most_commom(4)
+        for i, j in res:
+            s.append("{}: {}".format(i,j))
+        print(', '.join(s)
+
+person1 = Person('Sachin')
+if sys.argv[1] == "student":
+    student1 = Student('Kushal' , 'CSE', 2005, sys.argv[2])
+    student1.get_grade()
+elif sys.argv[1] == "teacher":
+    teacher1 = Teacher('Prashad',['python', 'c++'], sys.argv[2])
+    teacher1.get_grade()            
 
 
